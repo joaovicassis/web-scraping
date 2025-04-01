@@ -1,6 +1,6 @@
 import os
 import sys
-from src.scraper import download_ans_files
+from src.crawler import download_ans_files
 from src.processor import process_pdf_data
 
 def main():
