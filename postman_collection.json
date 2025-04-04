@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "b5e8f9d2-3c4a-4e5f-8d6a-7b8c9d0e1f2a",
+		"name": "Operadoras Search API",
+		"description": "Coleção de endpoints para a API de busca de operadoras de saúde",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Informações da API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000"
+				},
+				"description": "Retorna informações básicas sobre a API"
+			},
+			"response": []
+		},
+		{
+			"name": "Verificação de Saúde",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/health",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000"
+				},
+				"description": "Verifica o status da API e conexão com o banco de dados"
+			},
+			"response": []
+		},
+		{
+			"name": "Busca de Operadoras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/search?query=unimed&limit=10&offset=0&uf=SP&modalidade=OPERADORA",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["search"],
+					"query": [
+						{
+							"key": "query",
+							"value": "unimed",
+							"description": "Termo de busca"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "Número máximo de resultados"
+						},
+						{
+							"key": "offset",
+							"value": "0",
+							"description": "Número de resultados para pular"
+						},
+						{
+							"key": "uf",
+							"value": "SP",
+							"description": "Filtrar por UF"
+						},
+						{
+							"key": "modalidade",
+							"value": "OPERADORA",
+							"description": "Filtrar por modalidade"
+						}
+					]
+				},
+				"description": "Realiza busca textual em operadoras com filtros opcionais"
+			},
+			"response": []
+		},
+		{
+			"name": "Busca Simples",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/search?query=unimed",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["search"],
+					"query": [
+						{
+							"key": "query",
+							"value": "unimed",
+							"description": "Termo de busca"
+						}
+					]
+				},
+				"description": "Busca simples apenas com termo de busca"
+			},
+			"response": []
+		},
+		{
+			"name": "Busca com Paginação",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/search?query=unimed&limit=5&offset=10",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["search"],
+					"query": [
+						{
+							"key": "query",
+							"value": "unimed",
+							"description": "Termo de busca"
+						},
+						{
+							"key": "limit",
+							"value": "5",
+							"description": "Número máximo de resultados"
+						},
+						{
+							"key": "offset",
+							"value": "10",
+							"description": "Número de resultados para pular"
+						}
+					]
+				},
+				"description": "Busca com paginação personalizada"
+			},
+			"response": []
+		},
+		{
+			"name": "Busca por UF",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/search?query=unimed&uf=RJ",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["search"],
+					"query": [
+						{
+							"key": "query",
+							"value": "unimed",
+							"description": "Termo de busca"
+						},
+						{
+							"key": "uf",
+							"value": "RJ",
+							"description": "Filtrar por UF"
+						}
+					]
+				},
+				"description": "Busca filtrada por UF"
+			},
+			"response": []
+		},
+		{
+			"name": "Busca por Modalidade",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/search?query=unimed&modalidade=OPERADORA",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["search"],
+					"query": [
+						{
+							"key": "query",
+							"value": "unimed",
+							"description": "Termo de busca"
+						},
+						{
+							"key": "modalidade",
+							"value": "OPERADORA",
+							"description": "Filtrar por modalidade"
+						}
+					]
+				},
+				"description": "Busca filtrada por modalidade"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+} 
