@@ -161,6 +161,80 @@ Realiza busca textual em operadoras.
 ]
 ```
 
+### Coleções do Postman
+
+Para facilitar o teste e a documentação da API, disponibilizamos uma coleção completa do Postman. O arquivo `postman_collection.json` contém todos os endpoints configurados e prontos para uso.
+
+#### Como Importar a Coleção
+
+1. Abra o Postman
+2. Clique em "Import" (botão no canto superior esquerdo)
+3. Selecione o arquivo `postman_collection.json`
+4. A coleção será importada com todos os endpoints configurados
+
+#### Endpoints Disponíveis na Coleção
+
+1. **Informações da API** (`GET /`)
+   - Retorna informações básicas sobre a API
+   - URL: `http://localhost:8000/`
+
+2. **Verificação de Saúde** (`GET /health`)
+   - Verifica o status da API e conexão com o banco de dados
+   - URL: `http://localhost:8000/health`
+
+3. **Busca de Operadoras** (`GET /search`)
+   - Busca completa com todos os filtros
+   - URL: `http://localhost:8000/search?query=unimed&limit=10&offset=0&uf=SP&modalidade=OPERADORA`
+   - Parâmetros:
+     - `query`: Termo de busca (obrigatório)
+     - `limit`: Número máximo de resultados (opcional, padrão=10)
+     - `offset`: Número de resultados para pular (opcional, padrão=0)
+     - `uf`: Filtrar por UF (opcional)
+     - `modalidade`: Filtrar por modalidade (opcional)
+
+4. **Busca Simples** (`GET /search`)
+   - Busca apenas com termo de busca
+   - URL: `http://localhost:8000/search?query=unimed`
+
+5. **Busca com Paginação** (`GET /search`)
+   - Busca com paginação personalizada
+   - URL: `http://localhost:8000/search?query=unimed&limit=5&offset=10`
+
+6. **Busca por UF** (`GET /search`)
+   - Busca filtrada por UF
+   - URL: `http://localhost:8000/search?query=unimed&uf=RJ`
+
+7. **Busca por Modalidade** (`GET /search`)
+   - Busca filtrada por modalidade
+   - URL: `http://localhost:8000/search?query=unimed&modalidade=OPERADORA`
+
+#### Variáveis de Ambiente
+
+A coleção inclui uma variável de ambiente configurada:
+- `base_url`: URL base da API (padrão: `http://localhost:8000`)
+
+Para modificar a URL base:
+1. Abra as variáveis de ambiente do Postman
+2. Altere o valor da variável `base_url`
+3. Todos os endpoints serão atualizados automaticamente
+
+#### Exemplos de Uso
+
+1. **Busca por Operadora**
+   ```bash
+   GET http://localhost:8000/search?query=unimed
+   ```
+
+2. **Busca com Filtros**
+   ```bash
+   GET http://localhost:8000/search?query=unimed&uf=SP&modalidade=OPERADORA
+   ```
+
+3. **Busca Paginada**
+   ```bash
+   GET http://localhost:8000/search?query=unimed&limit=5&offset=10
+   ```
+
 ## 🧪 Testes
 
 ### Testes de Configuração
